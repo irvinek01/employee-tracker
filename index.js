@@ -38,6 +38,27 @@ const homeMenu = () => {
                     })
                     break;
 
+                case "View All Employees by Department":
+                    connection.query('SELECT name FROM department', (err, row) => {
+                        if (err) throw err;
+                        const choices = row.map(({ name }) => { return name });
+                        inquirer
+                            .prompt([
+                                {
+                                    type: "list",
+                                    name: "deptChoice",
+                                    message: "These are all the company's departments",
+                                    choices: choices
+                                },
+                            ])
+                            .then(userChoice => {
+                                if (userChoice.deptChoice == "Sales") {
+                                    
+                                }
+                            })
+                    });
+                    break;
+
                 default:
                     console.log("You are now ending the Content Management System");
                     return connection.end();
