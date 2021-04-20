@@ -1,0 +1,11 @@
+id,first_name,last_name,role_id,manager_id,id,title,salary,department_id,id,name
+1,AJ,Bautista,1,NULL,1,"Sales Lead",899.99,1,1,Sales
+2,Arianna,Grande,2,1,2,"Sales Talker",599.99,1,1,Sales
+3,Erin,Caesar,3,NULL,3,"Lead Engineer",1199.99,2,2,Engineering
+4,Areen,Delle,4,3,4,"Software Engineer",999.99,2,2,Engineering
+5,Cheska,Chesapeake,5,3,5,"Trainee Software Engineer",799.99,2,2,Engineering
+6,Reiss,Jaeger,6,NULL,6,"Human Resources Director",1099.99,3,3,"Human Resources"
+7,Bailey,Morgan,7,6,7,"Payroll Processing Specialist",799.99,3,3,"Human Resources"
+8,Basti,Casey,7,6,7,"Payroll Processing Specialist",799.99,3,3,"Human Resources"
+9,Rei,Chu,8,6,8,"Training Coordinator",699.99,3,3,"Human Resources"
+10,Dailey,Morgan,2,1,2,"Sales Talker",599.99,1,1,Sales

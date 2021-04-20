@@ -25,3 +25,7 @@ CREATE TABLE department (
 SELECT * FROM employee E 
 LEFT JOIN role R ON R.id = E.role_id 
 LEFT JOIN department D on D.id = R.department_id
+
+SELECT E.id,E.first_name,E.last_name,R.title,R.salary,D.name FROM employee E
+LEFT JOIN role R ON R.id = E.role_id
+LEFT JOIN department D ON D.id = R.department_id
