@@ -25,9 +25,12 @@ const homeMenu = () => {
         .then(userChoice => {
             switch (userChoice.userDo) {
                 case "View All Employees":
-                    const queryStr = `SELECT E.id,E.first_name,E.last_name,R.title,R.salary,D.name FROM employee E 
-                    LEFT JOIN role R ON R.id = E.role_id 
-                    LEFT JOIN department D ON D.id = R.department_id`;
+                    const queryStr = `SELECT E.id,E.first_name,E.last_name,R.title,R.salary,D.name,
+                    CONCAT(M.first_name, ' ', M.last_name) AS manager
+                     FROM employee E
+                    LEFT JOIN employee M ON E.manager_id = M.id
+                    LEFT JOIN role R ON R.id = E.role_id
+                    LEFT JOIN department D ON D.id = R.department_id;`;
                     connection.query(queryStr, (err, row) => {
                         if (err) throw err;
                         console.table(row);
