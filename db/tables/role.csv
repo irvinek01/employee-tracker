@@ -1,0 +1,9 @@
+id,title,salary,department_id
+1,"Sales Lead",899.99,1
+2,"Sales Talker",599.99,1
+3,"Lead Engineer",1199.99,2
+4,"Software Engineer",999.99,2
+5,"Trainee Software Engineer",799.99,2
+6,"Human Resources Director",1099.99,3
+7,"Payroll Processing Specialist",799.99,3
+8,"Training Coordinator",699.99,3

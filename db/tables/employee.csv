@@ -1,0 +1,11 @@
+id,first_name,last_name,role_id,manager_id
+1,AJ,Bautista,1,NULL
+2,Arianna,Grande,2,1
+3,Erin,Caesar,3,NULL
+4,Areen,Delle,4,3
+5,Cheska,Chesapeake,5,3
+6,Reiss,Jaeger,6,NULL
+7,Bailey,Morgan,7,6
+8,Basti,Casey,7,6
+9,Rei,Chu,8,6
+10,Dailey,Morgan,2,1
