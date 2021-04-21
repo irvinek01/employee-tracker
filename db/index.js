@@ -73,6 +73,10 @@ class DB {
         const query_string = 'INSERT INTO employee SET ?';
         return this.connection.query(query_string, new_emp);
     }
+    addNewDept(new_dept) {
+        const query_string = 'INSERT INTO department SET ?';
+        return this.connection.query(query_string, new_dept);
+    }
 
 
 }
