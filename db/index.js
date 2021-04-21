@@ -20,7 +20,7 @@ class DB {
         return this.connection.end(callback);
     }
     view_all_employees() {
-        const query_string = `SELECT E.id,E.first_name,E.last_name,R.title,R.salary,D.name,
+        const query_string = `SELECT E.id,E.first_name,E.last_name,R.title AS position,R.salary,D.name AS department,
         CONCAT(M.first_name, ' ', M.last_name) AS manager
         FROM employee E
         LEFT JOIN employee M ON E.manager_id = M.id
@@ -52,6 +52,16 @@ class DB {
         LEFT JOIN department D ON D.id = R.department_id
         WHERE E.manager_id IS NULL`;
         return this.connection.query(query_string);
+    }
+    getAllEmpByManagers(manager_fullname) {
+        const query_string = `SELECT CONCAT(M.first_name, ' ', M.last_name) AS manager,
+        E.first_name,E.last_name,E.id,R.title AS position,R.salary,D.name AS department
+        FROM employee E
+        LEFT JOIN employee M ON E.manager_id = M.id
+        LEFT JOIN role R ON R.id = E.role_id
+        LEFT JOIN department D ON D.id = R.department_id
+        WHERE CONCAT(M.first_name, ' ', M.last_name) = ?`;
+        return this.connection.query(query_string, manager_fullname);
     }
 
 
