@@ -28,6 +28,22 @@ class DB {
         LEFT JOIN department D ON D.id = R.department_id`;
         return this.connection.query(query_string);
     }
+    getAllDept() {
+        const query_string = `SELECT name FROM department`;
+        return this.connection.query(query_string);
+    }
+    getAllEmpByDept(department) {
+        const query_string = `SELECT CONCAT(D.name, ' Dept.') AS department,
+        R.title AS position,R.salary,
+        E.id,E.first_name,E.last_name,
+        CONCAT(M.first_name, ' ', M.last_name) AS manager
+        FROM employee E
+        LEFT JOIN employee M ON E.manager_id = M.id
+        LEFT JOIN role R ON R.id = E.role_id
+        LEFT JOIN department D ON D.id = R.department_id
+        WHERE D.name = ?`;
+        return this.connection.query(query_string, department);
+    }
 
 
 }
