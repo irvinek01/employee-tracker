@@ -45,12 +45,13 @@ class DB {
         return this.connection.query(query_string, department);
     }
     getAllManagers() {
-        const query_string = `SELECT CONCAT(E.first_name, ' ', E.last_name) AS managers
-        FROM employee E
-        LEFT JOIN employee M ON E.manager_id = M.id
-        LEFT JOIN role R ON R.id = E.role_id
-        LEFT JOIN department D ON D.id = R.department_id
-        WHERE E.manager_id IS NULL`;
+        const query_string = `SELECT E.id,
+        CONCAT(E.first_name, ' ', E.last_name) AS managers
+                FROM employee E
+                LEFT JOIN employee M ON E.manager_id = M.id
+                LEFT JOIN role R ON R.id = E.role_id
+                LEFT JOIN department D ON D.id = R.department_id
+                WHERE E.manager_id IS NULL`;
         return this.connection.query(query_string);
     }
     getAllEmpByManagers(manager_fullname) {
@@ -62,6 +63,15 @@ class DB {
         LEFT JOIN department D ON D.id = R.department_id
         WHERE CONCAT(M.first_name, ' ', M.last_name) = ?`;
         return this.connection.query(query_string, manager_fullname);
+    }
+    getAllRoles() {
+        const query_string = `SELECT id,title AS position
+        FROM role`;
+        return this.connection.query(query_string);
+    }
+    addNewEmp(new_emp) {
+        const query_string = 'INSERT INTO employee SET ?';
+        return this.connection.query(query_string, new_emp);
     }
 
 
