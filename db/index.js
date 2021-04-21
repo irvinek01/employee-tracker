@@ -44,6 +44,15 @@ class DB {
         WHERE D.name = ?`;
         return this.connection.query(query_string, department);
     }
+    getAllManagers() {
+        const query_string = `SELECT CONCAT(E.first_name, ' ', E.last_name) AS managers
+        FROM employee E
+        LEFT JOIN employee M ON E.manager_id = M.id
+        LEFT JOIN role R ON R.id = E.role_id
+        LEFT JOIN department D ON D.id = R.department_id
+        WHERE E.manager_id IS NULL`;
+        return this.connection.query(query_string);
+    }
 
 
 }
