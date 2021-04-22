@@ -54,7 +54,7 @@ node index.js
 
 - **Upon launching the command-line application.** 
 
-![The command-line application.](./assets/cmd-prog-screenshots/cmd-prog-view.png)
+![The command-line application.](./assets/cmd-prog-screenshots/cmd-prog-screenshot.png)
 
 - **Viewing employees.** 
 
