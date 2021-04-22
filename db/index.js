@@ -83,7 +83,7 @@ class DB {
     }
     updateEmpRole(role_id,id) {
         const query_string = 'UPDATE employee SET role_id = ? WHERE id = ?';
-        return this.connection.query(query_string, role_id,id);
+        return this.connection.query(query_string, [role_id,id]);
     }
 
 
