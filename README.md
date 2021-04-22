@@ -47,7 +47,7 @@ mysql -u root -p < db/schema.sql
 For starting the command-line application:
 
 ```bash
-npm start
+node index.js
 ```
 
 ## Screenshots
