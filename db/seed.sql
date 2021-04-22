@@ -1,32 +1,23 @@
-DROP DATABASE IF EXISTS companyDB;
-CREATE database companyDB;
-USE companyDB;
+INSERT INTO department (name) VALUES ("Sales");
+INSERT INTO department (name) VALUES ("Engineering");
+INSERT INTO department (name) VALUES ("Human Resources");
 
-CREATE TABLE employee (
-  id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  first_name VARCHAR(30) NOT NULL,
-  last_name VARCHAR(30) NOT NULL,
-  role_id INTEGER NOT NULL,
-  manager_id INTEGER
-);
+INSERT INTO role (title,salary,department_id) VALUES ("Sales Lead",899.99,1);
+INSERT INTO role (title,salary,department_id) VALUES ("Sales Talker",599.99,1);
+INSERT INTO role (title,salary,department_id) VALUES ("Lead Engineer",1199.99,2);
+INSERT INTO role (title,salary,department_id) VALUES ("Software Engineer",999.99,2);
+INSERT INTO role (title,salary,department_id) VALUES ("Trainee Software Engineer",799.99,2);
+INSERT INTO role (title,salary,department_id) VALUES ("Human Resources Director",1099.99,3);
+INSERT INTO role (title,salary,department_id) VALUES ("Payroll Processing Specialist",799.99,3);
+INSERT INTO role (title,salary,department_id) VALUES ("Training Coordinator",699.99,3);
 
-CREATE TABLE role (
-  id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  title VARCHAR(30) NOT NULL,
-  salary DECIMAL(6,2) NOT NULL,
-  department_id INTEGER
-);
-
-CREATE TABLE department (
-  id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  name VARCHAR(30) NOT NULL
-);
-
-SELECT E.id,E.first_name,E.last_name,R.title,R.salary,D.name,
-CONCAT(M.first_name, ' ', M.last_name) AS manager
-FROM employee E
-LEFT JOIN employee M ON E.manager_id = M.id
-LEFT JOIN role R ON R.id = E.role_id
-LEFT JOIN department D ON D.id = R.department_id
-
-
+INSERT INTO employee (first_name,last_name,role_id) VALUES ("AJ","Bautista",1);
+INSERT INTO employee (first_name,last_name,role_id,manager_id) VALUES ("Arianna","Grande",2,1);
+INSERT INTO employee (first_name,last_name,role_id) VALUES ("Erin","Caesar",3);
+INSERT INTO employee (first_name,last_name,role_id,manager_id) VALUES ("Areen","Delle",4,3);
+INSERT INTO employee (first_name,last_name,role_id,manager_id) VALUES ("Cheska","Chesapeake",5,3);
+INSERT INTO employee (first_name,last_name,role_id) VALUES ("Reiss","Jaeger",6);
+INSERT INTO employee (first_name,last_name,role_id,manager_id) VALUES ("Bailey","Morgan",7,6);
+INSERT INTO employee (first_name,last_name,role_id,manager_id) VALUES ("Basti","Casey",7,6);
+INSERT INTO employee (first_name,last_name,role_id,manager_id) VALUES ("Rei","Chu",8,6);
+INSERT INTO employee (first_name,last_name,role_id,manager_id) VALUES ("Dailey","Morgan",2,1);
