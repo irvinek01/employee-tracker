@@ -81,6 +81,10 @@ class DB {
         const query_string = 'INSERT INTO role SET ?';
         return this.connection.query(query_string, new_role);
     }
+    updateEmpRole(role_id,id) {
+        const query_string = 'UPDATE employee SET role_id = ? WHERE id = ?';
+        return this.connection.query(query_string, role_id,id);
+    }
 
 
 }
