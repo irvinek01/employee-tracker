@@ -1,3 +1,3 @@
 # employee-tracker
-Add departments, roles, employees
+Add roles
 Update employee roles

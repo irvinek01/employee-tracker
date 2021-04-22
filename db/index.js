@@ -29,7 +29,7 @@ class DB {
         return this.connection.query(query_string);
     }
     getAllDept() {
-        const query_string = `SELECT name FROM department`;
+        const query_string = `SELECT id,name FROM department`;
         return this.connection.query(query_string);
     }
     getAllEmpByDept(department) {
@@ -41,7 +41,7 @@ class DB {
         LEFT JOIN employee M ON E.manager_id = M.id
         LEFT JOIN role R ON R.id = E.role_id
         LEFT JOIN department D ON D.id = R.department_id
-        WHERE D.name = ?`;
+        WHERE D.id = ?`;
         return this.connection.query(query_string, department);
     }
     getAllManagers() {
@@ -76,6 +76,10 @@ class DB {
     addNewDept(new_dept) {
         const query_string = 'INSERT INTO department SET ?';
         return this.connection.query(query_string, new_dept);
+    }
+    addNewRole(new_role) {
+        const query_string = 'INSERT INTO role SET ?';
+        return this.connection.query(query_string, new_role);
     }
 
 
