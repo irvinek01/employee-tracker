@@ -44,6 +44,15 @@ class DB {
         WHERE D.id = ?`;
         return this.connection.query(query_string, department);
     }
+    getTotalbudget(department) {
+        const query_string = `SELECT CONCAT(D.name, ' Dept.') AS department,
+        SUM(salary) AS totalbudget
+        from department D
+        INNER JOIN role R ON D.id = R.department_id
+        INNER JOIN employee E ON R.id = E.role_id
+        WHERE D.id = ?`;
+        return this.connection.query(query_string, department);
+    }
     getAllManagers() {
         const query_string = `SELECT E.id,
         CONCAT(E.first_name, ' ', E.last_name) AS managers
@@ -81,9 +90,9 @@ class DB {
         const query_string = 'INSERT INTO role SET ?';
         return this.connection.query(query_string, new_role);
     }
-    updateEmpRole(role_id,id) {
+    updateEmpRole(role_id, id) {
         const query_string = 'UPDATE employee SET role_id = ? WHERE id = ?';
-        return this.connection.query(query_string, [role_id,id]);
+        return this.connection.query(query_string, [role_id, id]);
     }
 
 
