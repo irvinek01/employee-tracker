@@ -66,7 +66,8 @@ node index.js
 
 ## ImportingCSV
 
-Importing .csv files to mySQL workbench guide
+Importing .csv files to mySQL workbench guide  
+.csv files can be accessed in `./db/tables` directory
 
 - **Copy and paste entire code of schema.sql to your workbench** 
 
