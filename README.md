@@ -47,7 +47,7 @@ mysql -u root -p < db/seed.sql
 For starting the command-line application:
 
 ```bash
-node index.js
+npm start
 ```
 
 ## Screenshots
