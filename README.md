@@ -41,7 +41,7 @@ mysql -u root -p < db/schema.sql
 For pre-populating the database:
 
 ```bash
-mysql -u root -p < db/schema.sql
+mysql -u root -p < db/seed.sql
 ```
 
 For starting the command-line application:
